@@ -1,0 +1,26 @@
+
+<h1>Rentr A Car</h1>
+<h5>Find the best car</h5>
+<ng-template >
+Counter: {{counter}}
+<button (click)="setCounter(1)">+</button>
+<button (click)="setCounter(-1)">-</button>
+
+<p *ngIf="counter===0">
+  counter is zero
+</p>
+<!---daha uzun if işlemlerinde getter ya da setter olulturarak
+yazarsak daha doğru olur .ts dosyasını açarsan
+daha iyi anlarsın  -->
+<p *ngIf="isCounterZero">
+  counter is zero
+</p>
+<!--- Anguler 17 sonrasındaki if kullanımı -->
+@if (counter<0) {
+  <p>counter is zero</p>
+}
+
+@if (isCounterZero) {
+  <p>counter is zero</p>
+}
+</ng-template>
