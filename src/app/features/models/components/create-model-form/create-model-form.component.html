@@ -1,0 +1,38 @@
+<form [formGroup]="form" (submit)="onSubmitForm()" class="needs-validation" novalidate>
+  <div class="mb-3">
+    <label for="brandId" class="form-label">BrandId</label>
+    <input type="text" class="form-control" id="brandId" formControlName="brandId" required>
+    <div class="invalid-feedback" *ngIf="form.get('brandId')?.invalid && form.get('brandId')?.touched">
+      {{ form.get('brandId')?.errors | createRules }}
+    </div>
+  </div>
+  <div class="mb-3">
+    <label for="brandName" class="form-label">BrandName</label>
+    <input type="text" class="form-control" id="brandName" formControlName="brandName" required>
+    <div class="invalid-feedback" *ngIf="form.get('brandName')?.invalid && form.get('brandName')?.touched">
+      {{ form.get('brandName')?.errors | createRules }}
+    </div>
+  </div>
+  <div class="mb-3">
+    <label for="name" class="form-label">Name</label>
+    <input type="text" class="form-control" id="name" formControlName="name" required>
+    <div class="invalid-feedback" *ngIf="form.get('name')?.invalid && form.get('name')?.touched">
+      {{ form.get('name')?.errors | createRules }}
+    </div>
+  </div>
+  <div class="mb-3">
+    <label for="modelYear" class="form-label">Model Year</label>
+    <input type="text" class="form-control" id="modelYear" formControlName="modelYear" required>
+    <div class="invalid-feedback" *ngIf="form.get('modelYear')?.invalid && form.get('modelYear')?.touched">
+      {{ form.get('modelYear')?.errors | createRules }}
+    </div>
+  </div>
+  <div class="mb-3">
+    <label for="dailyPrice" class="form-label">Daily Price</label>
+    <input type="text" class="form-control" id="dailyPrice" formControlName="dailyPrice" required>
+    <div class="invalid-feedback" *ngIf="form.get('dailyPrice')?.invalid && form.get('dailyPrice')?.touched">
+      {{ form.get('dailyPrice')?.errors | createRules }}
+    </div>
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>

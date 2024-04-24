@@ -1,42 +1,77 @@
-
 import { Routes } from '@angular/router';
-import { MainLayoutComponent } from './shared/layouts/main-layout/main-layout.component';
-import { NotFoundPageComponent } from './routers/not-found-page/not-found-page.component';
-import { ModelsListComponent } from './features/models/components/models-list/models-list.component';
 import { HomePageComponent } from './routers/home-page/home-page.component';
-import { BrandComponent } from './features/brands/components/brand/brand.component';
+import { MainLayoutComponent } from './shared/layouts/main-layout/main-layout.component';
+import { TestPageComponent } from './routers/test-page/test-page.component';
+import { NotFoundPageComponent } from './routers/not-found-page/not-found-page.component';
+import { CreateBrandPageComponent } from './routers/create-brand-page/create-brand-page.component';
+import { UpdateBrandFormComponent } from './features/brands/components/update-brand-form/update-brand-form.component';
+import { UpdateBrandPageComponent } from './routers/update-brand-page/update-brand-page.component';
+import { CreateModelPageComponent } from './routers/create-model-page/create-model-page.component';
+import { ModelDetailsPageComponent } from './routers/model-details-page/model-details-page.component';
+import { CustomersListComponent } from './features/customers/components/customers-list/customers-list.component';
+import { RentalsListComponent } from './features/rentals/components/rentals-list/rentals-list/rentals-list.component';
 
 export const routes: Routes = [
-  { path:'',
-    pathMatch:'full',
-    redirectTo:'home'
-  ,},
+  // Home
   {
-    path:'home', //  /home
-    //pathMatch:'prefix', defaultta zaten böyle
-    component:MainLayoutComponent,
-    children:[
+    path: '', // /
+    pathMatch: 'full',
+    redirectTo: 'home',
+    // children: []
+  },
+  {
+    path: 'home', // /home
+    // pathMatch: 'prefix', // Default // ^(/home)
+    component: MainLayoutComponent,
+    children: [
       {
-        path:'',
-        pathMatch:'full',
-        component:HomePageComponent
+        path: "models", // /home/models
+        component: HomePageComponent,
       },
       {
-        path:"models", // home/models
-        component:ModelsListComponent
+        path: 'models/:modelId', // /home/models/1
+        // : ile başlayanlar route parametresi olur.
+        component: ModelDetailsPageComponent,
       },
-      {
-        path:"brands",
-        component:BrandComponent
-      }
     ]
   },
   {
-    path:'**',
-    redirectTo:'not-found'
+    path: 'layout-test',
+    component: TestPageComponent
   },
   {
-    path:'not-found', // bu sayfa en sona yazılmalı ki hiçbiri bulunamazsa açılsın
-    component:NotFoundPageComponent
+    path: 'customers',
+    component: CustomersListComponent,
+  },
+
+  {
+    path: 'rentals',
+    component: RentalsListComponent,
+  },
+
+  // Create Brand Page
+  {
+    path: 'brands/create',
+    component: CreateBrandPageComponent,
+  },
+  {
+    path: 'models/create',
+    component: CreateModelPageComponent,
+  },
+
+//  {
+//    path: 'brands/update',
+//    component: UpdateBrandPageComponent,
+//  },
+  
+
+  // 404 Not Found Page
+  {
+    path: '**', // Her path'de çalışır. En sona yazılmalı.
+    redirectTo: 'not-found',
+  },
+  {
+    path: 'not-found',
+    component: NotFoundPageComponent,
   }
 ];

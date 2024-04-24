@@ -1,8 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { NavbarComponent } from '../../componenets/navbar/navbar.component';
-import { FooterComponent } from '../../componenets/footer/footer.component';
-import { HomePageComponent } from '../../../routers/home-page/home-page.component';
+import { NavbarComponent } from '../../components/navbar/navbar.component';
+import { FooterComponent } from '../../components/footer/footer.component';
 import { RouterModule } from '@angular/router';
 
 @Component({
@@ -10,10 +9,9 @@ import { RouterModule } from '@angular/router';
   standalone: true,
   imports: [
     CommonModule,
-    NavbarComponent,
-    FooterComponent,
-    HomePageComponent,
     RouterModule,
+    NavbarComponent,
+    FooterComponent
   ],
   templateUrl: './main-layout.component.html',
   styleUrl: './main-layout.component.scss',

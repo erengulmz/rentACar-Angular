@@ -8,4 +8,5 @@ export const appConfig: ApplicationConfig = {
   providers: [
     provideRouter(routes),
     provideHttpClient(), // HttpClient'ı kullanabilmek için ekledik
-  ],};
+  ],
+};
